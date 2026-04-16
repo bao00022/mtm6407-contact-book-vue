@@ -19,11 +19,11 @@ const filteredContacts = computed(() => {
   if (!keyword) {
     return contacts.value;
   } else {
-    const filteredContacts = contacts.value.filter((contact) => {
+    const filtered = contacts.value.filter((contact) => {
       const fullName = `${contact.firstName} ${contact.lastName}`.toLowerCase();
       return fullName.includes(keyword);
     });
-    return filteredContacts;
+    return filtered;
   }
 });
 
@@ -50,7 +50,7 @@ const goToAdd = () => {
     </form>
 
     <ul v-if="filteredContacts.length" class="contact-list">
-      <li v-for="(contact, index) in filteredContacts" :key="contact.id" class="contact-item">
+      <li v-for="contact in filteredContacts" :key="contact.id" class="contact-item">
         <RouterLink class="contact-link" :to="`/contact/${contact.id}`">
           <div class="contact-info-wrap">
             <div class="avatar" :class="randomColor()">
@@ -158,7 +158,7 @@ const goToAdd = () => {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 999px;
-  color: #ffffff;
+  color: #484242;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -167,27 +167,27 @@ const goToAdd = () => {
 }
 
 .avatar-blue {
-  background: #3b82f6;
+  background: #b9cff1;
 }
 
 .avatar-teal {
-  background: #0d9488;
+  background: #beeeea;
 }
 
 .avatar-orange {
-  background: #f97316;
+  background: #edceb8;
 }
 
 .avatar-green {
-  background: #16a34a;
+  background: #c1efd2;
 }
 
 .avatar-pink {
-  background: #db2777;
+  background: #f0bcd3;
 }
 
 .avatar-red {
-  background: #dc2626;
+  background: #f1c7c7;
 }
 
 .name {
